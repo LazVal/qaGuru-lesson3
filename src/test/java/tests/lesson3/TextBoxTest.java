@@ -1,4 +1,4 @@
-package tests;
+package tests.lesson3;
 
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +12,7 @@ public class TextBoxTest extends BaseTest {
     void successFullFillFormTest() {
        open("/text-box"); // открываем сайт
        $("[id=userName]").setValue("Vera"); //ввести значение в поле
-       $("[id=userEmail]").setValue("fwwqg@mail.ru");
+       $("#userEmail").setValue("fwwqg@mail.ru"); // #-сокращение для id
        $("[id=currentAddress]").setValue("first address 1");
        $("[id=permanentAddress]").setValue("second address 1"); //CTR+D - копирует строчки кода
        $("[id=submit]").click(); //нажать кнопку
