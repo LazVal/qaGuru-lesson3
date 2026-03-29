@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e7b99c6-f1dd-4aad-981b-323f2eba4ff0" name="Changes" comment="Commit test and BaseTest">
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/homeWork3/BaseTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/homeWork3/RegFormTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/homeWork3/downloads/горы.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/qaGuru-lesson3.iml" beforeDir="false" />
+    <list default="true" id="2e7b99c6-f1dd-4aad-981b-323f2eba4ff0" name="Changes" comment="Commit successFullFillFormTest">
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/homeWork3_1/BaseTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/homeWork3_1/RegFormTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/lesson3/BaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/TextBoxTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/lesson3/TextBoxTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/homeWork3/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/homeWork3/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/homeWork3/RegFormTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/homeWork3/RegFormTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,47 +67,24 @@
       <recent name="D:\Testing\qaGuru-lesson3\src\test\java\tests\homeWork3\downloads" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RegFormTest.successFullFillFormTest">
-    <configuration name="JUnitExamplesTests.firstTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;tests.examples.JUnitExamplesTests.firstTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="JUnitExamplesTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.RegFormTest.negativeEmailTest">
+    <configuration name="RegFormTest.negativeEmailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="qaGuru-lesson3.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tests.examples.*" />
+          <option name="PATTERN" value="tests.homeWork3_1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="tests.examples" />
-      <option name="MAIN_CLASS_NAME" value="tests.examples.JUnitExamplesTests" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="tests.homeWork3_1" />
+      <option name="MAIN_CLASS_NAME" value="tests.homeWork3_1.RegFormTest" />
+      <option name="METHOD_NAME" value="negativeEmailTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegFormTest.successFullFillFormTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegFormTest.negativeLastNameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="qaGuru-lesson3.test" />
       <extension name="coverage">
         <pattern>
@@ -121,22 +94,54 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests.homeWork3" />
       <option name="MAIN_CLASS_NAME" value="tests.homeWork3.RegFormTest" />
-      <option name="METHOD_NAME" value="successFullFillFormTest" />
+      <option name="METHOD_NAME" value="negativeLastNameTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TextBoxTest.successFullFillFormTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegFormTest.negativeMobileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="qaGuru-lesson3.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tests.lesson3.*" />
+          <option name="PATTERN" value="tests.homeWork3.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="tests.lesson3" />
-      <option name="MAIN_CLASS_NAME" value="tests.lesson3.TextBoxTest" />
+      <option name="PACKAGE_NAME" value="tests.homeWork3" />
+      <option name="MAIN_CLASS_NAME" value="tests.homeWork3.RegFormTest" />
+      <option name="METHOD_NAME" value="negativeMobileTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegFormTest.negativefirstNameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="qaGuru-lesson3.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.homeWork3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.homeWork3" />
+      <option name="MAIN_CLASS_NAME" value="tests.homeWork3.RegFormTest" />
+      <option name="METHOD_NAME" value="negativefirstNameTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegFormTest.successFullFillFormTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="qaGuru-lesson3.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.homeWork3_1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.homeWork3_1" />
+      <option name="MAIN_CLASS_NAME" value="tests.homeWork3_1.RegFormTest" />
       <option name="METHOD_NAME" value="successFullFillFormTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -145,10 +150,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RegFormTest.successFullFillFormTest" />
-        <item itemvalue="JUnit.TextBoxTest.successFullFillFormTest" />
-        <item itemvalue="JUnit.JUnitExamplesTests" />
-        <item itemvalue="Gradle.JUnitExamplesTests.firstTest" />
+        <item itemvalue="JUnit.RegFormTest.negativeEmailTest" />
+        <item itemvalue="JUnit.RegFormTest.successFullFillFormTest (1)" />
+        <item itemvalue="JUnit.RegFormTest.negativeMobileTest" />
+        <item itemvalue="JUnit.RegFormTest.negativeLastNameTest" />
+        <item itemvalue="JUnit.RegFormTest.negativefirstNameTest" />
       </list>
     </recent_temporary>
   </component>
@@ -201,7 +207,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774694764066</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Commit successFullFillFormTest">
+      <option name="closed" value="true" />
+      <created>1774709916301</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1774709916301</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -209,6 +223,7 @@
     <MESSAGE value="Commit build.gradle" />
     <MESSAGE value="Commit JUnit examples" />
     <MESSAGE value="Commit test and BaseTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit test and BaseTest" />
+    <MESSAGE value="Commit successFullFillFormTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit successFullFillFormTest" />
   </component>
 </project>
