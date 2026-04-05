@@ -32,8 +32,7 @@ public class RegFormTest extends BaseTest{
         $("#hobbies-checkbox-1[value='1']").click();
         $("#uploadPicture").sendKeys(uploadPicture);
         $(".col-md-9.col-sm-12 #currentAddress").setValue(currentAddress);
-        executeJavaScript("window.scrollBy(0, 500)");//прокрутить страницу вниз
-        $("#react-select-3-input").click();
+        $("#react-select-3-input").scrollIntoView(true).click();
         $x("//div[contains(@class,'css-d7l1ni-option') and text()='NCR']").click();
         $("#react-select-4-input").click();
         $x("//div[contains(@class,'css-d7l1ni-option') and text()='Delhi']").click();
