@@ -1,9 +1,11 @@
 package tests.homeWork3;
 
+import com.codeborne.selenide.ScrollOptions;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.cssValue;
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.ScrollDirection.DOWN;
 import static com.codeborne.selenide.Selenide.*;
 import static tests.testdata.TestData.*;
 
@@ -30,6 +32,7 @@ public class RegFormTest extends BaseTest{
         $("#hobbies-checkbox-1[value='1']").click();
         $("#uploadPicture").sendKeys(uploadPicture);
         $(".col-md-9.col-sm-12 #currentAddress").setValue(currentAddress);
+        executeJavaScript("window.scrollBy(0, 500)");//прокрутить страницу вниз
         $("#react-select-3-input").click();
         $x("//div[contains(@class,'css-d7l1ni-option') and text()='NCR']").click();
         $("#react-select-4-input").click();
