@@ -5,84 +5,95 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.cssValue;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
+import static tests.testdata.TestData.*;
+
 
 public class RegFormTest extends BaseTest{
 
-@Test
+
+    @Test
     void successFullFillFormTest() {
-    open("/automation-practice-form");
-    $("#firstName").setValue("Vera");
-    $("#lastName").setValue("Semenova");
-    $("#userEmail-wrapper #userEmail").setValue("Semenova@fewf.ru");
-    $("input.form-check-input[value=Female]").click();
-    $("#userNumber-wrapper #userNumber").setValue("4325274196");
-    //$("#dateOfBirthInput").setValue("28 Mar 2026");
-    $("#subjectsInput").setValue("English");
-    $x("//div[contains(@class,'subjects-auto-complete__option') and text()='English']").click();
-    $("#hobbies-checkbox-1[value='1']").click();
-    $("#uploadPicture").sendKeys("D:\\Testing\\qaGuru-lesson3\\src\\test\\java\\tests\\homeWork3\\downloads\\горы.jpg");
-    $(".col-md-9.col-sm-12 #currentAddress").setValue("Semenova@fewf");
-    $("#react-select-3-input").click();
-    $x("//div[contains(@class,'css-d7l1ni-option') and text()='NCR']").click();
-    $("#react-select-4-input").click();
-    $x("//div[contains(@class,'css-d7l1ni-option') and text()='Delhi']").click();
-    $("#submit").click();
+        open(openHost);
+        $("#firstName").setValue(userName);
+        $("#lastName").setValue(lastName);
+        $("#userEmail-wrapper #userEmail").setValue(userEmail);
+        $("input.form-check-input[value=Female]").click();
+        $("#userNumber-wrapper #userNumber").setValue(userNumber);
+        $("#dateOfBirthInput").click();
+        $(".react-datepicker__month-select").click();
+        $(".react-datepicker__month-select option[value='0']").click();
+        $(".react-datepicker__year-select").click();
+        $(".react-datepicker__year-select option[value='1990']").click();
+        $("div.react-datepicker__day.react-datepicker__day--004").click();
+        $("#subjectsInput").setValue(subjectsInput);
+        $x("//div[contains(@class,'subjects-auto-complete__option') and text()='English']").click();
+        $("#hobbies-checkbox-1[value='1']").click();
+        $("#uploadPicture").sendKeys(uploadPicture);
+        $(".col-md-9.col-sm-12 #currentAddress").setValue(currentAddress);
+        $("#react-select-3-input").click();
+        $x("//div[contains(@class,'css-d7l1ni-option') and text()='NCR']").click();
+        $("#react-select-4-input").click();
+        $x("//div[contains(@class,'css-d7l1ni-option') and text()='Delhi']").click();
+        $("#submit").click();
 
-    $x("//tr[td[normalize-space()='Student Name']]/td[2]")
-            .shouldHave(text("Vera Semenova"));
-    $x("//tr[td[normalize-space()='Student Email']]/td[2]")
-            .shouldHave(text("Semenova@fewf.ru"));
-    $x("//tr[td[normalize-space()='Gender']]/td[2]")
-            .shouldHave(text("Female"));
-    $x("//tr[td[normalize-space()='Mobile']]/td[2]")
-            .shouldHave(text("4325274196"));
-    $x("//tr[td[normalize-space()='Date of Birth']]/td[2]")
-            .shouldHave(text("29 March,2026"));
-    $x("//tr[td[normalize-space()='Subjects']]/td[2]")
-            .shouldHave(text("English"));
-    $x("//tr[td[normalize-space()='Hobbies']]/td[2]")
-            .shouldHave(text("Sports"));
-    $x("//tr[td[normalize-space()='Picture']]/td[2]")
-            .shouldHave(text("горы.jpg"));
-    $x("//tr[td[normalize-space()='Address']]/td[2]")
-            .shouldHave(text("Semenova@fewf"));
-    $x("//tr[td[normalize-space()='State and City']]/td[2]")
-            .shouldHave(text("NCR Delhi"));
-
-
-
+        $x("//tr[td[normalize-space()='Student Name']]/td[2]")
+                .shouldHave(text(fullNmae));
+        $x("//tr[td[normalize-space()='Student Email']]/td[2]")
+                .shouldHave(text(userEmail));
+        $x("//tr[td[normalize-space()='Gender']]/td[2]")
+                .shouldHave(text(sex));
+        $x("//tr[td[normalize-space()='Mobile']]/td[2]")
+                .shouldHave(text(userNumber));
+        $x("//tr[td[normalize-space()='Date of Birth']]/td[2]")
+                .shouldHave(text(dateofBirth));
+        $x("//tr[td[normalize-space()='Subjects']]/td[2]")
+                .shouldHave(text(subjectsInput));
+        $x("//tr[td[normalize-space()='Hobbies']]/td[2]")
+                .shouldHave(text(Hobbies));
+        $x("//tr[td[normalize-space()='Picture']]/td[2]")
+                .shouldHave(text(namePicture));
+        $x("//tr[td[normalize-space()='Address']]/td[2]")
+                .shouldHave(text(currentAddress));
+        $x("//tr[td[normalize-space()='State and City']]/td[2]")
+                .shouldHave(text(StateAndCity));
 
     }
 
     @Test
     void successCompulsoryFillFormTest() {
-        open("/automation-practice-form");
-        $("#firstName").setValue("Vera");
-        $("#lastName").setValue("Semenova");
+        open(openHost);
+        $("#firstName").setValue(userName);
+        $("#lastName").setValue(lastName);
         $("input.form-check-input[value=Female]").click();
-        $("#userNumber-wrapper #userNumber").setValue("4325274196");
+        $("#userNumber-wrapper #userNumber").setValue(userNumber);
+        $("#dateOfBirthInput").click();
+        $(".react-datepicker__month-select").click();
+        $(".react-datepicker__month-select option[value='0']").click();
+        $(".react-datepicker__year-select").click();
+        $(".react-datepicker__year-select option[value='1990']").click();
+        $("div.react-datepicker__day.react-datepicker__day--004").click();
         $("#submit").click();
 
 
         $x("//tr[td[normalize-space()='Student Name']]/td[2]")
-                .shouldHave(text("Vera Semenova"));
+                .shouldHave(text(fullNmae));
 
         $x("//tr[td[normalize-space()='Gender']]/td[2]")
-                .shouldHave(text("Female"));
+                .shouldHave(text(sex));
         $x("//tr[td[normalize-space()='Mobile']]/td[2]")
-                .shouldHave(text("4325274196"));
+                .shouldHave(text(userNumber));
         $x("//tr[td[normalize-space()='Date of Birth']]/td[2]")
-                .shouldHave(text("29 March,2026"));
+                .shouldHave(text(dateofBirth));
 
     }
 
     @Test
     void negativeFirstNameTest() {
-        open("/automation-practice-form");
+        open(openHost);
 
-        $("#lastName").setValue("Semenova");
+        $("#lastName").setValue(lastName);
         $("input.form-check-input[value=Female]").click();
-        $("#userNumber-wrapper #userNumber").setValue("4325274196");
+        $("#userNumber-wrapper #userNumber").setValue(userNumber);
         $("#submit").click();
 
 
@@ -93,11 +104,11 @@ public class RegFormTest extends BaseTest{
 
     @Test
     void negativeLastNameTest() {
-        open("/automation-practice-form");
+        open(openHost);
 
-        $("#firstName").setValue("Vera");
+        $("#firstName").setValue(userName);
         $("input.form-check-input[value=Female]").click();
-        $("#userNumber-wrapper #userNumber").setValue("4325274196");
+        $("#userNumber-wrapper #userNumber").setValue(userNumber);
         $("#submit").click();
 
 
@@ -109,12 +120,12 @@ public class RegFormTest extends BaseTest{
 
     @Test
     void negativeMobileTest() {
-        open("/automation-practice-form");
+        open(openHost);
 
-        $("#firstName").setValue("Vera");
-        $("#lastName").setValue("Semenova");
+        $("#firstName").setValue(userName);
+        $("#lastName").setValue(lastName);
         $("input.form-check-input[value=Female]").click();
-        $("#userNumber-wrapper #userNumber").setValue("432532147");
+        $("#userNumber-wrapper #userNumber").setValue(userNumberNegative);
         $("#submit").click();
 
 
