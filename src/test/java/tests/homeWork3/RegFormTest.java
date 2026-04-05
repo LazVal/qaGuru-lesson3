@@ -30,7 +30,7 @@ public class RegFormTest extends BaseTest{
         $("#subjectsInput").setValue(subjectsInput);
         $x("//div[contains(@class,'subjects-auto-complete__option') and text()='English']").click();
         $("#hobbies-checkbox-1[value='1']").click();
-        $("#uploadPicture").sendKeys(uploadPicture);
+        $("#uploadPicture").uploadFromClasspath(uploadPicture);
         $(".col-md-9.col-sm-12 #currentAddress").setValue(currentAddress);
         $("#react-select-3-input").scrollIntoView(true).click();
         $x("//div[contains(@class,'css-d7l1ni-option') and text()='NCR']").click();

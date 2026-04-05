@@ -14,7 +14,7 @@ public class TestData {
     public static String dateofBirth = "04 January,1990";
     public static String subjectsInput = "English";
     public static String Hobbies = "Sports";
-    public static String uploadPicture = "D:\\Testing\\qaGuru-lesson3\\src\\test\\java\\tests\\homeWork3\\downloads\\горы.jpg";
+    public static String uploadPicture = "горы.jpg";
     public static String namePicture = "горы.jpg";
     public static String currentAddress = "Sports@fewf";
     public static String StateAndCity = "NCR Delhi";
