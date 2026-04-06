@@ -1,7 +1,7 @@
 package tests.testdata;
 
 public class TestData {
-    public static String openHost = "/automation-practice-form";
+    //public static String openHost = "/automation-practice-form";
     public static String openHostSecond = "/text-box";
     public static String userName = "Vera";
     public static String lastName = "Semenova";
@@ -11,7 +11,10 @@ public class TestData {
     public static String sex = "Female";
     public static String userNumber = "4325274196";
     public static String userNumberNegative = "43252741";
-    public static String dateofBirth = "04 January,1990";
+    public static String dateDat = "30";
+    public static String dateMonth = "July";
+    public static String dateYear = "1990";
+    public static String dateofBirth = "30 July,1990";
     public static String subjectsInput = "English";
     public static String Hobbies = "Sports";
     public static String uploadPicture = "горы.jpg";

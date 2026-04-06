@@ -1,32 +1,28 @@
 package tests.homeWork3;
 
-import com.codeborne.selenide.ScrollOptions;
 import org.junit.jupiter.api.Test;
+import pages.RegistrationPage;
 
 import static com.codeborne.selenide.Condition.cssValue;
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.ScrollDirection.DOWN;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static tests.testdata.TestData.*;
 
 
 public class RegFormTest extends BaseTest{
 
-
+    RegistrationPage registrationPage = new RegistrationPage();
     @Test
     void successFullFillFormTest() {
-        open(openHost);
-        $("#firstName").setValue(userName);
-        $("#lastName").setValue(lastName);
-        $("#userEmail-wrapper #userEmail").setValue(userEmail);
-        $("input.form-check-input[value=Female]").click();
-        $("#userNumber-wrapper #userNumber").setValue(userNumber);
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").click();
-        $(".react-datepicker__month-select option[value='0']").click();
-        $(".react-datepicker__year-select").click();
-        $(".react-datepicker__year-select option[value='1990']").click();
-        $("div.react-datepicker__day.react-datepicker__day--004").click();
+        registrationPage.openPage()
+                .typeFirstName(userName)
+                .typeLastName(lastName)
+                .typeUserEmail(userEmail)
+                .selectGenterWrapper(sex)
+                .typeUserNumber(userNumber)
+                .setDayOfBirth(dateDat, dateMonth, dateYear);
+
         $("#subjectsInput").setValue(subjectsInput);
         $x("//div[contains(@class,'subjects-auto-complete__option') and text()='English']").click();
         $("#hobbies-checkbox-1[value='1']").click();
@@ -63,7 +59,7 @@ public class RegFormTest extends BaseTest{
 
     @Test
     void successCompulsoryFillFormTest() {
-        open(openHost);
+        registrationPage.openPage();
         $("#firstName").setValue(userName);
         $("#lastName").setValue(lastName);
         $("input.form-check-input[value=Female]").click();
@@ -91,7 +87,7 @@ public class RegFormTest extends BaseTest{
 
     @Test
     void negativeFirstNameTest() {
-        open(openHost);
+        registrationPage.openPage();
 
         $("#lastName").setValue(lastName);
         $("input.form-check-input[value=Female]").click();
@@ -106,7 +102,7 @@ public class RegFormTest extends BaseTest{
 
     @Test
     void negativeLastNameTest() {
-        open(openHost);
+        registrationPage.openPage();
 
         $("#firstName").setValue(userName);
         $("input.form-check-input[value=Female]").click();
@@ -122,7 +118,7 @@ public class RegFormTest extends BaseTest{
 
     @Test
     void negativeMobileTest() {
-        open(openHost);
+        registrationPage.openPage();
 
         $("#firstName").setValue(userName);
         $("#lastName").setValue(lastName);
