@@ -20,6 +20,8 @@ public class TestData {
     public static String uploadPicture = "горы.jpg";
     public static String namePicture = "горы.jpg";
     public static String currentAddress = "Sports@fewf";
+    public static String state = "NCR";
+    public static String city = "Delhi";
     public static String StateAndCity = "NCR Delhi";
 
 }
