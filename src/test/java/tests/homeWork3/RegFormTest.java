@@ -1,7 +1,6 @@
 package tests.homeWork3;
 
 import org.junit.jupiter.api.Test;
-import pages.RegistrationPage;
 
 import static com.codeborne.selenide.Condition.cssValue;
 import static com.codeborne.selenide.Condition.text;
@@ -12,7 +11,6 @@ import static tests.testdata.TestData.*;
 
 public class RegFormTest extends BaseTest{
 
-    RegistrationPage registrationPage = new RegistrationPage();
     @Test
     void successFullFillFormTest() {
         registrationPage.openPage()
@@ -21,17 +19,18 @@ public class RegFormTest extends BaseTest{
                 .typeUserEmail(userEmail)
                 .selectGenterWrapper(sex)
                 .typeUserNumber(userNumber)
-                .setDayOfBirth(dateDat, dateMonth, dateYear);
+                .setDayOfBirth(dateDat, dateMonth, dateYear)
+                .typeSubject(subjectsInput)
+                .setHobbies()
+                .uploadPicture(uploadPicture)
+                .typeAddress(currentAddress);
 
-        $("#subjectsInput").setValue(subjectsInput);
-        $x("//div[contains(@class,'subjects-auto-complete__option') and text()='English']").click();
-        $("#hobbies-checkbox-1[value='1']").click();
-        $("#uploadPicture").uploadFromClasspath(uploadPicture);
-        $(".col-md-9.col-sm-12 #currentAddress").setValue(currentAddress);
+
         $("#react-select-3-input").scrollIntoView(true).click();
-        $x("//div[contains(@class,'css-d7l1ni-option') and text()='NCR']").click();
-        $("#react-select-4-input").click();
-        $x("//div[contains(@class,'css-d7l1ni-option') and text()='Delhi']").click();
+        $("#state").click();
+        $("#stateCity-wrapper").$(byText(state)).click();
+        $("#city").click();
+        $("#stateCity-wrapper").$(byText(city)).click();
         $("#submit").click();
 
         $x("//tr[td[normalize-space()='Student Name']]/td[2]")
