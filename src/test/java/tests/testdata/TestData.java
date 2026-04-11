@@ -1,14 +1,18 @@
 package tests.testdata;
 
+import com.codeborne.selenide.SelenideElement;
+
+import static com.codeborne.selenide.Selenide.$;
+
 public class TestData {
-    //public static String openHost = "/automation-practice-form";
+    // public static String openHost = "/automation-practice-form";
     public static String openHostSecond = "/text-box";
     public static String userName = "Vera";
     public static String lastName = "Semenova";
-    public static String fullNmae = "Vera Semenova";
+    public static String fullName = "Vera Semenova";
     public static String userEmail = "Semenova@fewf.ru";
     public static String userEmailNegative = "Vera@mail.";
-    public static String sex = "Female";
+    public static String gender = "Female";
     public static String userNumber = "4325274196";
     public static String userNumberNegative = "43252741";
     public static String dateDat = "30";
@@ -22,6 +26,22 @@ public class TestData {
     public static String currentAddress = "Sports@fewf";
     public static String state = "NCR";
     public static String city = "Delhi";
-    public static String StateAndCity = "NCR Delhi";
+    public static String stateAndCity = "NCR Delhi";
+    public static String tableText = "Thanks for submitting the form";
+    public static String studentName = "Student Name";
+    public static String studentEmail = "Student Email";
+    public static String studentGender = "Gender";
+    public static String studentMobile = "Mobile";
+    public static String studentDateOfBirth = "Date of Birth";
+    public static String studentSubjects = "Subjects";
+    public static String studentHobbies = "Hobbies";
+    public static String studentPicture = "Picture";
+    public static String studentAddress = "Address";
+    public static String studentStateAndCity = "State and City";
+    public static String borderColorRed = "rgb(220, 53, 69)";
+
+    //переменный для второй формы
+    public static String name = "name";
+    public static String borderColorRedSecond = "rgb(255, 0, 0)";
 
 }
