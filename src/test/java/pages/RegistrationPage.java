@@ -4,8 +4,11 @@ import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 import pages.components.SubjectComponent;
 
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$x;
+import static tests.testdata.TestData.*;
 
 public class RegistrationPage {
     CalendarComponent calendar = new CalendarComponent();
@@ -21,6 +24,9 @@ public class RegistrationPage {
     private final SelenideElement userAddress = $(".col-md-9.col-sm-12 #currentAddress");
     private final SelenideElement scrollIntoView = $("#react-select-3-input");
     //private final SelenideElement stateCity = $("#stateCity-wrapper").$(byText("NCR");
+    private final SelenideElement submitButton = $("#submit");
+    private final SelenideElement tableAppear = $(".modal-dialog");
+    private final SelenideElement tableText = $("#example-modal-sizes-title-lg");
 
 
     //Actions (то, что делаем с локаторами)
@@ -62,28 +68,62 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setDayOfBirth(String day, String month, String year){
+    public RegistrationPage setDayOfBirth(String day, String month, String year) {
         $("#dateOfBirthInput").click();
         calendar.setDatesOfBirth(day, month, year);
 
         return this;
     }
 
-    public RegistrationPage typeSubject(String value){
+    public RegistrationPage typeSubject(String value) {
         subject.setSubject(value);
         return this;
     }
 
-    public RegistrationPage setHobbies () {
+    public RegistrationPage setHobbies() {
         userHobbies.click();
         return this;
     }
+
     public RegistrationPage uploadPicture(String value) {
         userPicture.uploadFromClasspath(value);
         return this;
     }
-    public RegistrationPage typeAddress (String value) {
+
+    public RegistrationPage typeAddress(String value) {
         userAddress.setValue(value);
         return this;
     }
+
+    public RegistrationPage submitForm() {
+        submitButton.click();
+        return this;
+    }
+
+    public RegistrationPage checkAppear(String value) {
+        tableAppear.should(appear);
+        tableText.shouldHave(text(value));
+        return this;
+    }
+
+    public RegistrationPage checkResponce(String key, String value) {
+        $x("//tr[td[normalize-space()='" + key + "']]/td[2]").shouldHave(text(value));
+        return this;
+    }
+
+    public RegistrationPage checkBorderColorLastName() {
+        userLastName.shouldHave(cssValue("border-color", borderColorRed));
+        return this;
+    }
+
+    public RegistrationPage checkBorderColorFirstName() {
+        firstNameInput.shouldHave(cssValue("border-color", borderColorRed));
+        return this;
+    }
+
+    public RegistrationPage checkBorderColorNumber() {
+        userNumber.shouldHave(cssValue("border-color", borderColorRed));
+        return this;
+    }
+
 }

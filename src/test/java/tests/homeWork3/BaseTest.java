@@ -1,25 +1,26 @@
 package tests.homeWork3;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import pages.RegistrationPage;
-import pages.components.SubjectComponent;
-
-import static com.codeborne.selenide.Selenide.closeWebDriver;
+import pages.RegistrationPageSecond;
 
 public class BaseTest {
     RegistrationPage registrationPage = new RegistrationPage();
-    SubjectComponent subjectComponent = new SubjectComponent();
+    RegistrationPageSecond registrationPageSecond = new RegistrationPageSecond();
+
     @BeforeAll
-    public static void beforeAll() {
+    public static void setupSelenideEnv() {
         Configuration.browserSize = "1920x1080"; //расширение браузера
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browser = "chrome";
     }
 
+
     @AfterEach
-    void afterEach() {
-        closeWebDriver();
+    void closeWebDriver() {
+        Selenide.closeWebDriver();
     }
 }

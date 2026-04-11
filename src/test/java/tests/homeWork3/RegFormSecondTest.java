@@ -1,6 +1,7 @@
 package tests.homeWork3;
 
 import org.junit.jupiter.api.Test;
+import pages.RegistrationPageSecond;
 import tests.homeWork3.BaseTest;
 
 import static com.codeborne.selenide.Condition.cssValue;
@@ -14,26 +15,33 @@ public class RegFormSecondTest extends BaseTest {
 
     @Test
     void successCompulsoryFillFormTest() {
-        open(openHostSecond);
-        $("#userName-wrapper #userName").setValue(userName);
-        $("#userEmail-wrapper #userEmail").setValue(userEmail);
-        $("#submit").click();
-
-
-        $(".border.col-md-12.col-sm-12 #name").shouldHave(text(userName));
+        registrationPageSecond.openPage()
+                .inputName(userName)
+                .inputEmail(userEmail)
+                .submitForm()
+                .checkField(name,userName);
+//        $("#userName").setValue(userName);
+//        $("#userEmail").setValue(userEmail);
+//        $("#submit").click();
+//        $("[id=output]").shouldHave(text(userName));
 
     }
 
     @Test
     void negativeEmailTest() {
-        open(openHostSecond);
-        $("#userName-wrapper #userName").setValue(userName);
-        $("#userEmail-wrapper #userEmail").setValue(userEmailNegative);
-        $("#submit").click();
+        registrationPageSecond.openPage()
+                .inputName(userName)
+                .inputEmail(userEmailNegative)
+                .submitForm()
+                .checkBorderColorUserEmail();
 
 
-        $("#userEmail-wrapper #userEmail")
-                .shouldHave(cssValue("border-color", "rgb(255, 0, 0)"));
+//        $("#userName-wrapper #userName").setValue(userName);
+//        $("#userEmail-wrapper #userEmail").setValue(userEmailNegative);
+//        $("#submit").click();
+//
+//        $("#userEmail-wrapper #userEmail")
+//                .shouldHave(cssValue("border-color", "rgb(255, 0, 0)"));
 
     }
 }
