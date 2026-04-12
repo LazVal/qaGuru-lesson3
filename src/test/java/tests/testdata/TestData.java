@@ -23,8 +23,6 @@ public class TestData {
     public static String dateDat = String.valueOf(faker.number().numberBetween(1, 31));
     public static String dateMonth = RandomUtils.getRandomMonth();
     public static String dateYear = String.valueOf(faker.number().numberBetween(1900, 2100));
-
-    //public static String dateofBirth = "30 July,1990";
     public static String dateofBirth = String.format("%s %s,%s", dateDat, dateMonth, dateYear);
     public static String subjectsInput = "English";
     public static String Hobbies = "Sports";
