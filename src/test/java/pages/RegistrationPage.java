@@ -22,8 +22,9 @@ public class RegistrationPage {
     private final SelenideElement userHobbies = $("#hobbies-checkbox-1[value='1']");
     private final SelenideElement userPicture = $("#uploadPicture");
     private final SelenideElement userAddress = $(".col-md-9.col-sm-12 #currentAddress");
-    private final SelenideElement scrollIntoView = $("#react-select-3-input");
-    //private final SelenideElement stateCity = $("#stateCity-wrapper").$(byText("NCR");
+    private SelenideElement stateSelect = $("#state");
+    private SelenideElement citySelect = $("#city");
+    private SelenideElement stateCityContainer = $("#stateCity-wrapper");
     private final SelenideElement submitButton = $("#submit");
     private final SelenideElement tableAppear = $(".modal-dialog");
     private final SelenideElement tableText = $("#example-modal-sizes-title-lg");
@@ -95,8 +96,23 @@ public class RegistrationPage {
         return this;
     }
 
+    public RegistrationPage setState(String value) {
+        stateSelect.scrollIntoView(true).click();
+        stateCityContainer.$(byText(value)).click();
+
+        return this;
+    }
+
+    public RegistrationPage setCity(String value) {
+        citySelect.scrollIntoView(true).click();
+        stateCityContainer.$(byText(value)).click();
+
+        return this;
+    }
+
+
     public RegistrationPage submitForm() {
-        submitButton.click();
+        submitButton.scrollIntoView(true).shouldBe(visible).click();
         return this;
     }
 

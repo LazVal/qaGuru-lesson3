@@ -1,5 +1,6 @@
 package tests.homeWork3;
 
+import jdk.jfr.Description;
 import org.junit.jupiter.api.Test;
 
 import static tests.testdata.TestData.*;
@@ -8,6 +9,7 @@ import static tests.testdata.TestData.*;
 public class RegFormTest extends BaseTest {
 
     @Test
+    @Description("Позитивно проверяются все поля формы, а не только обязательные")
     void successFullFillFormTest() {
         registrationPage.openPage()
                 .typeFirstName(userName)
@@ -20,7 +22,10 @@ public class RegFormTest extends BaseTest {
                 .setHobbies()
                 .uploadPicture(uploadPicture)
                 .typeAddress(currentAddress)
+                .setState(state)
+                .setCity(city)
                 .submitForm()
+                .checkAppear(tableText)
                 .checkResponce(studentName, fullName)
                 .checkResponce(studentEmail, userEmail)
                 .checkResponce(studentGender, gender)
@@ -29,13 +34,14 @@ public class RegFormTest extends BaseTest {
                 .checkResponce(studentSubjects, subjectsInput)
                 .checkResponce(studentHobbies, Hobbies)
                 .checkResponce(studentPicture, namePicture)
-                .checkResponce(studentAddress, currentAddress);
-        // .checkResponce(studentStateAndCity,stateAndCity);
+                .checkResponce(studentAddress, currentAddress)
+                .checkResponce(studentStateAndCity, stateAndCity);
 
 
     }
 
     @Test
+    @Description("Позитивно проверяются только обязательные поля")
     void successCompulsoryFillFormTest() {
         registrationPage.openPage()
                 .typeFirstName(userName)
@@ -52,6 +58,7 @@ public class RegFormTest extends BaseTest {
     }
 
     @Test
+    @Description("Негативная проверка на незаполнение имени")
     void negativeFirstNameTest() {
         registrationPage.openPage()
                 .typeLastName(lastName)
@@ -72,6 +79,7 @@ public class RegFormTest extends BaseTest {
     }
 
     @Test
+    @Description("Негативная проверка на незаполнение фамилии")
     void negativeLastNameTest() {
         registrationPage.openPage()
                 .typeFirstName(userName)
@@ -93,6 +101,7 @@ public class RegFormTest extends BaseTest {
     }
 
     @Test
+    @Description("Негативная проверка на незаполнение телефона")
     void negativeMobileTest() {
         registrationPage.openPage()
                 .typeFirstName(userName)
