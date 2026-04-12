@@ -9,13 +9,9 @@ import java.util.Locale;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class TestData  {
+public class TestData {
     static Faker faker = new Faker();
     static Faker fakerRu = new Faker(new Locale("ru"));
-
-
-    // public static String openHost = "/automation-practice-form";
-    public static String openHostSecond = "/text-box";
     public static String userName = RandomUtils.getRandomString(5);
     public static String lastName = fakerRu.name().lastName();
     public static String fullName = userName + " " + lastName;
@@ -24,7 +20,7 @@ public class TestData  {
     public static String gender = RandomUtils.getRandomGender();
     public static String userNumber = faker.phoneNumber().subscriberNumber(10);
     public static String userNumberNegative = "43252741";
-    public static String dateDat = String.valueOf(faker.number().numberBetween(1,31));
+    public static String dateDat = String.valueOf(faker.number().numberBetween(1, 31));
     public static String dateMonth = RandomUtils.getRandomMonth();
     public static String dateYear = String.valueOf(faker.number().numberBetween(1900, 2100));
 
