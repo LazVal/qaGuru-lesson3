@@ -33,7 +33,7 @@ public class RegFormTest extends BaseTest {
                 .checkResponce(studentDateOfBirth, dateofBirth)
                 .checkResponce(studentSubjects, subjectsInput)
                 .checkResponce(studentHobbies, Hobbies)
-                .checkResponce(studentPicture, namePicture)
+                .checkResponce(studentPicture, uploadPicture)
                 .checkResponce(studentAddress, currentAddress)
                 .checkResponce(studentStateAndCity, stateAndCity);
 
