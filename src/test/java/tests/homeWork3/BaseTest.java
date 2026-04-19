@@ -9,7 +9,7 @@ import pages.RegistrationPage;
 import pages.RegistrationPageSecond;
 
 public class BaseTest {
-    RegistrationPage registrationPage = new RegistrationPage();
+    //RegistrationPage registrationPage = new RegistrationPage();
     RegistrationPageSecond registrationPageSecond = new RegistrationPageSecond();
 
     @BeforeAll

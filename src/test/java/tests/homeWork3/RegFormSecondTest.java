@@ -11,6 +11,7 @@ import static com.codeborne.selenide.Selenide.$x;
 import static tests.testdata.TestData.*;
 
 public class RegFormSecondTest extends BaseTest {
+    RegistrationPageSecond registrationPageSecond = new RegistrationPageSecond();
 
 
     @Test
@@ -20,10 +21,6 @@ public class RegFormSecondTest extends BaseTest {
                 .inputEmail(userEmail)
                 .submitForm()
                 .checkField(name,userName);
-//        $("#userName").setValue(userName);
-//        $("#userEmail").setValue(userEmail);
-//        $("#submit").click();
-//        $("[id=output]").shouldHave(text(userName));
 
     }
 
@@ -34,14 +31,6 @@ public class RegFormSecondTest extends BaseTest {
                 .inputEmail(userEmailNegative)
                 .submitForm()
                 .checkBorderColorUserEmail();
-
-
-//        $("#userName-wrapper #userName").setValue(userName);
-//        $("#userEmail-wrapper #userEmail").setValue(userEmailNegative);
-//        $("#submit").click();
-//
-//        $("#userEmail-wrapper #userEmail")
-//                .shouldHave(cssValue("border-color", "rgb(255, 0, 0)"));
 
     }
 }

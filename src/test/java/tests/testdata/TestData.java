@@ -2,6 +2,8 @@ package tests.testdata;
 
 import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
+import pages.RegistrationPage;
+import pages.RegistrationPageSecond;
 import tests.homeWork3.BaseTest;
 import utils.RandomUtils;
 

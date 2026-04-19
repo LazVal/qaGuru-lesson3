@@ -2,11 +2,13 @@ package tests.homeWork3;
 
 import jdk.jfr.Description;
 import org.junit.jupiter.api.Test;
+import pages.RegistrationPage;
 
 import static tests.testdata.TestData.*;
 
 
 public class RegFormTest extends BaseTest {
+    RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
     @Description("Позитивно проверяются все поля формы, а не только обязательные")

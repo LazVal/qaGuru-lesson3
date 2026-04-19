@@ -13,6 +13,8 @@ import static tests.testdata.TestData.*;
 
 public class RegistrationPage {
 
+    TableComponent tableComponent = new TableComponent();
+    SubjectComponent subject = new SubjectComponent();
     //Elements (локаторы)
     private final SelenideElement firstNameInput = $("#firstName");
     private final SelenideElement userLastName = $("#lastName");
@@ -76,7 +78,6 @@ public class RegistrationPage {
     }
 
     public RegistrationPage typeSubject(String value) {
-        SubjectComponent subject = new SubjectComponent();
         subject.setSubject(value);
         return this;
     }
@@ -123,7 +124,6 @@ public class RegistrationPage {
     }
 
     public RegistrationPage checkResponce(String key, String value) {
-        TableComponent tableComponent = new TableComponent();
         tableComponent.checkResponce(key, value);
         return this;
     }
