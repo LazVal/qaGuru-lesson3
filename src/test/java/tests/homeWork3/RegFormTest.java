@@ -26,16 +26,16 @@ public class RegFormTest extends BaseTest {
                 .setCity(city)
                 .submitForm()
                 .checkAppear(tableText)
-                .checkResponce(studentName, fullName)
-                .checkResponce(studentEmail, userEmail)
-                .checkResponce(studentGender, gender)
-                .checkResponce(studentMobile, userNumber)
-                .checkResponce(studentDateOfBirth, dateofBirth)
-                .checkResponce(studentSubjects, subjectsInput)
-                .checkResponce(studentHobbies, Hobbies)
-                .checkResponce(studentPicture, uploadPicture)
-                .checkResponce(studentAddress, currentAddress)
-                .checkResponce(studentStateAndCity, stateAndCity);
+                .checkResponce("Student Name", fullName)
+                .checkResponce("Student Email", userEmail)
+                .checkResponce("Gender", gender)
+                .checkResponce("Mobile", userNumber)
+                .checkResponce("Date of Birth", dateofBirth)
+                .checkResponce("Subjects", subjectsInput)
+                .checkResponce("Hobbies", Hobbies)
+                .checkResponce("Picture", uploadPicture)
+                .checkResponce("Address", currentAddress)
+                .checkResponce("State and City", stateAndCity);
 
 
     }
@@ -50,10 +50,10 @@ public class RegFormTest extends BaseTest {
                 .typeUserNumber(userNumber)
                 .setDayOfBirth(dateDat, dateMonth, dateYear)
                 .submitForm()
-                .checkResponce(studentName, fullName)
-                .checkResponce(studentGender, gender)
-                .checkResponce(studentMobile, userNumber)
-                .checkResponce(studentDateOfBirth, dateofBirth);
+                .checkResponce("Student Name", fullName)
+                .checkResponce("Gender", gender)
+                .checkResponce("Mobile", userNumber)
+                .checkResponce("Date of Birth", dateofBirth);
 
     }
 
@@ -67,15 +67,6 @@ public class RegFormTest extends BaseTest {
                 .submitForm()
                 .checkBorderColorFirstName();
 
-//        $("#lastName").setValue(lastName);
-//        $("input.form-check-input[value=Female]").click();
-//        $("#userNumber-wrapper #userNumber").setValue(userNumber);
-//        $("#submit").click();
-//
-//
-//        $("#firstName")
-//                .shouldHave(cssValue("border-color", borderColorRed));
-
     }
 
     @Test
@@ -87,16 +78,6 @@ public class RegFormTest extends BaseTest {
                 .typeUserNumber(userNumber)
                 .submitForm()
                 .checkBorderColorLastName();
-
-
-//        $("#firstName").setValue(userName);
-//        $("input.form-check-input[value=Female]").click();
-//        $("#userNumber-wrapper #userNumber").setValue(userNumber);
-//        $("#submit").click();
-//
-//        $("#lastName")
-//                .shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
-
 
     }
 
@@ -110,16 +91,6 @@ public class RegFormTest extends BaseTest {
                 .typeUserNumber(userNumberNegative)
                 .submitForm()
                 .checkBorderColorNumber();
-
-//        $("#firstName").setValue(userName);
-//        $("#lastName").setValue(lastName);
-//        $("input.form-check-input[value=Female]").click();
-//        $("#userNumber-wrapper #userNumber").setValue(userNumberNegative);
-//        $("#submit").click();
-//
-//
-//        $("#userNumber-wrapper #userNumber")
-//                .shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
 
 
     }

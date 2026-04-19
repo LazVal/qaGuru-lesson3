@@ -3,6 +3,7 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 import pages.components.SubjectComponent;
+import pages.components.TableComponent;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -11,20 +12,20 @@ import static com.codeborne.selenide.Selenide.$x;
 import static tests.testdata.TestData.*;
 
 public class RegistrationPage {
-    CalendarComponent calendar = new CalendarComponent();
-    SubjectComponent subject = new SubjectComponent();
+
     //Elements (локаторы)
     private final SelenideElement firstNameInput = $("#firstName");
     private final SelenideElement userLastName = $("#lastName");
     private final SelenideElement userEmail = $("#userEmail-wrapper #userEmail");
     private final SelenideElement genterWrapper = $("#genterWrapper");
     private final SelenideElement userNumber = $("#userNumber-wrapper #userNumber");
+    private final SelenideElement calendarClick = $("#dateOfBirthInput");
     private final SelenideElement userHobbies = $("#hobbies-checkbox-1[value='1']");
     private final SelenideElement userPicture = $("#uploadPicture");
     private final SelenideElement userAddress = $(".col-md-9.col-sm-12 #currentAddress");
-    private SelenideElement stateSelect = $("#state");
-    private SelenideElement citySelect = $("#city");
-    private SelenideElement stateCityContainer = $("#stateCity-wrapper");
+    private final SelenideElement stateSelect = $("#state");
+    private final SelenideElement citySelect = $("#city");
+    private final SelenideElement stateCityContainer = $("#stateCity-wrapper");
     private final SelenideElement submitButton = $("#submit");
     private final SelenideElement tableAppear = $(".modal-dialog");
     private final SelenideElement tableText = $("#example-modal-sizes-title-lg");
@@ -33,9 +34,6 @@ public class RegistrationPage {
     //Actions (то, что делаем с локаторами)
     public RegistrationPage openPage() {
         open("/automation-practice-form");
-//        executeJavaScript("$('#fixedban').remove()");
-//        executeJavaScript("$('footer').remove()");
-
         return this;
     }
 
@@ -70,13 +68,15 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setDayOfBirth(String day, String month, String year) {
-        $("#dateOfBirthInput").click();
+        calendarClick.click();
+        CalendarComponent calendar = new CalendarComponent();
         calendar.setDatesOfBirth(day, month, year);
 
         return this;
     }
 
     public RegistrationPage typeSubject(String value) {
+        SubjectComponent subject = new SubjectComponent();
         subject.setSubject(value);
         return this;
     }
@@ -123,7 +123,8 @@ public class RegistrationPage {
     }
 
     public RegistrationPage checkResponce(String key, String value) {
-        $x("//tr[td[normalize-space()='" + key + "']]/td[2]").shouldHave(text(value));
+        TableComponent tableComponent = new TableComponent();
+        tableComponent.checkResponce(key, value);
         return this;
     }
 
