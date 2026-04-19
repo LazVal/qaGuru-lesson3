@@ -36,7 +36,7 @@ public class TestData {
         case "Uttar Pradesh" -> faker.options().option("Agra", "Lucknow", "Merrut");
         case "Haryana" -> faker.options().option("Karnal", "Panipat");
         case "Rajasthan" -> faker.options().option("Jaipur", "Jaiselmer");
-        default -> faker.options().option("DefaultCity1", "DefaultCity2");
+        default -> "Delhi";
     };
     public static String stateAndCity = state + " " + city;
     public static String tableText = "Thanks for submitting the form";
