@@ -31,8 +31,14 @@ public class TestData {
     public static String uploadPicture = "горы.jpg";
     public static String currentAddress = faker.address().fullAddress();
     public static String state = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
-    public static String city = faker.options().option(state);
-    public static String stateAndCity = "NCR Delhi";
+    public static String city = switch (state) {
+        case "NCR" -> faker.options().option("Delhi", "Gurgaon", "Noida");
+        case "Uttar Pradesh" -> faker.options().option("Agra", "Lucknow", "Merrut");
+        case "Haryana" -> faker.options().option("Karnal", "Panipat");
+        case "Rajasthan" -> faker.options().option("Jaipur", "Jaiselmer");
+        default -> faker.options().option("DefaultCity1", "DefaultCity2");
+    };
+    public static String stateAndCity = state + " " + city;
     public static String tableText = "Thanks for submitting the form";
     public static String borderColorRed = "rgb(220, 53, 69)";
 
