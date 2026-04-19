@@ -15,6 +15,8 @@ public class RegistrationPage {
 
     TableComponent tableComponent = new TableComponent();
     SubjectComponent subject = new SubjectComponent();
+    CalendarComponent calendar = new CalendarComponent();
+
     //Elements (локаторы)
     private final SelenideElement firstNameInput = $("#firstName");
     private final SelenideElement userLastName = $("#lastName");
@@ -71,7 +73,6 @@ public class RegistrationPage {
 
     public RegistrationPage setDayOfBirth(String day, String month, String year) {
         calendarClick.click();
-        CalendarComponent calendar = new CalendarComponent();
         calendar.setDatesOfBirth(day, month, year);
 
         return this;
