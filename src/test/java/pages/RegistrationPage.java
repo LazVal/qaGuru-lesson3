@@ -4,6 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 import pages.components.SubjectComponent;
 import pages.components.TableComponent;
+import tests.testdata.TestData;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -16,6 +17,7 @@ public class RegistrationPage {
     TableComponent tableComponent = new TableComponent();
     SubjectComponent subject = new SubjectComponent();
     CalendarComponent calendar = new CalendarComponent();
+    TestData testData = new TestData();
 
     //Elements (локаторы)
     private final SelenideElement firstNameInput = $("#firstName");
@@ -24,7 +26,7 @@ public class RegistrationPage {
     private final SelenideElement genterWrapper = $("#genterWrapper");
     private final SelenideElement userNumber = $("#userNumber-wrapper #userNumber");
     private final SelenideElement calendarClick = $("#dateOfBirthInput");
-    private final SelenideElement userHobbies = $("#hobbies-checkbox-1[value='1']");
+    private final SelenideElement userHobbies = $("#hobbiesWrapper");
     private final SelenideElement userPicture = $("#uploadPicture");
     private final SelenideElement userAddress = $(".col-md-9.col-sm-12 #currentAddress");
     private final SelenideElement stateSelect = $("#state");
@@ -83,8 +85,8 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setHobbies() {
-        userHobbies.click();
+    public RegistrationPage setHobbies(String value) {
+        userHobbies.$(byText(value)).click();
         return this;
     }
 
@@ -130,17 +132,17 @@ public class RegistrationPage {
     }
 
     public RegistrationPage checkBorderColorLastName() {
-        userLastName.shouldHave(cssValue("border-color", borderColorRed));
+        userLastName.shouldHave(cssValue("border-color", testData.borderColorRed));
         return this;
     }
 
     public RegistrationPage checkBorderColorFirstName() {
-        firstNameInput.shouldHave(cssValue("border-color", borderColorRed));
+        firstNameInput.shouldHave(cssValue("border-color", testData.borderColorRed));
         return this;
     }
 
     public RegistrationPage checkBorderColorNumber() {
-        userNumber.shouldHave(cssValue("border-color", borderColorRed));
+        userNumber.shouldHave(cssValue("border-color", testData.borderColorRed));
         return this;
     }
 

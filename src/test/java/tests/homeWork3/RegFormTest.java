@@ -3,41 +3,41 @@ package tests.homeWork3;
 import jdk.jfr.Description;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
-
-import static tests.testdata.TestData.*;
+import tests.testdata.TestData;
 
 
 public class RegFormTest extends BaseTest {
     RegistrationPage registrationPage = new RegistrationPage();
+    TestData testData = new TestData();
 
     @Test
     @Description("Позитивно проверяются все поля формы, а не только обязательные")
     void successFullFillFormTest() {
         registrationPage.openPage()
-                .typeFirstName(userName)
-                .typeLastName(lastName)
-                .typeUserEmail(userEmail)
-                .selectGenterWrapper(gender)
-                .typeUserNumber(userNumber)
-                .setDayOfBirth(dateDat, dateMonth, dateYear)
-                .typeSubject(subjectsInput)
-                .setHobbies()
-                .uploadPicture(uploadPicture)
-                .typeAddress(currentAddress)
-                .setState(state)
-                .setCity(city)
+                .typeFirstName(testData.userName)
+                .typeLastName(testData.lastName)
+                .typeUserEmail(testData.userEmail)
+                .selectGenterWrapper(testData.gender)
+                .typeUserNumber(testData.userNumber)
+                .setDayOfBirth(testData.dateDat, testData.dateMonth, testData.dateYear)
+                .typeSubject(testData.subjectsInput)
+                .setHobbies(testData.hobbies)
+                .uploadPicture(testData.uploadPicture)
+                .typeAddress(testData.currentAddress)
+                .setState(testData.state)
+                .setCity(testData.city)
                 .submitForm()
-                .checkAppear(tableText)
-                .checkResponce("Student Name", fullName)
-                .checkResponce("Student Email", userEmail)
-                .checkResponce("Gender", gender)
-                .checkResponce("Mobile", userNumber)
-                .checkResponce("Date of Birth", dateofBirth)
-                .checkResponce("Subjects", subjectsInput)
-                .checkResponce("Hobbies", Hobbies)
-                .checkResponce("Picture", uploadPicture)
-                .checkResponce("Address", currentAddress)
-                .checkResponce("State and City", stateAndCity);
+                .checkAppear(testData.tableText)
+                .checkResponce("Student Name", testData.fullName)
+                .checkResponce("Student Email", testData.userEmail)
+                .checkResponce("Gender", testData.gender)
+                .checkResponce("Mobile", testData.userNumber)
+                .checkResponce("Date of Birth", testData.dateofBirth)
+                .checkResponce("Subjects", testData.subjectsInput)
+                .checkResponce("Hobbies", testData.hobbies)
+                .checkResponce("Picture", testData.uploadPicture)
+                .checkResponce("Address", testData.currentAddress)
+                .checkResponce("State and City", testData.stateAndCity);
 
 
     }
@@ -46,16 +46,16 @@ public class RegFormTest extends BaseTest {
     @Description("Позитивно проверяются только обязательные поля")
     void successCompulsoryFillFormTest() {
         registrationPage.openPage()
-                .typeFirstName(userName)
-                .typeLastName(lastName)
-                .selectGenterWrapper(gender)
-                .typeUserNumber(userNumber)
-                .setDayOfBirth(dateDat, dateMonth, dateYear)
+                .typeFirstName(testData.userName)
+                .typeLastName(testData.lastName)
+                .selectGenterWrapper(testData.gender)
+                .typeUserNumber(testData.userNumber)
+                .setDayOfBirth(testData.dateDat, testData.dateMonth, testData.dateYear)
                 .submitForm()
-                .checkResponce("Student Name", fullName)
-                .checkResponce("Gender", gender)
-                .checkResponce("Mobile", userNumber)
-                .checkResponce("Date of Birth", dateofBirth);
+                .checkResponce("Student Name", testData.fullName)
+                .checkResponce("Gender", testData.gender)
+                .checkResponce("Mobile", testData.userNumber)
+                .checkResponce("Date of Birth", testData.dateofBirth);
 
     }
 
@@ -63,9 +63,9 @@ public class RegFormTest extends BaseTest {
     @Description("Негативная проверка на незаполнение имени")
     void negativeFirstNameTest() {
         registrationPage.openPage()
-                .typeLastName(lastName)
-                .selectGenterWrapper(gender)
-                .typeUserNumber(userNumber)
+                .typeLastName(testData.lastName)
+                .selectGenterWrapper(testData.gender)
+                .typeUserNumber(testData.userNumber)
                 .submitForm()
                 .checkBorderColorFirstName();
 
@@ -75,9 +75,9 @@ public class RegFormTest extends BaseTest {
     @Description("Негативная проверка на незаполнение фамилии")
     void negativeLastNameTest() {
         registrationPage.openPage()
-                .typeFirstName(userName)
-                .selectGenterWrapper(gender)
-                .typeUserNumber(userNumber)
+                .typeFirstName(testData.userName)
+                .selectGenterWrapper(testData.gender)
+                .typeUserNumber(testData.userNumber)
                 .submitForm()
                 .checkBorderColorLastName();
 
@@ -87,10 +87,10 @@ public class RegFormTest extends BaseTest {
     @Description("Негативная проверка на незаполнение телефона")
     void negativeMobileTest() {
         registrationPage.openPage()
-                .typeFirstName(userName)
-                .typeLastName(lastName)
-                .selectGenterWrapper(gender)
-                .typeUserNumber(userNumberNegative)
+                .typeFirstName(testData.userName)
+                .typeLastName(testData.lastName)
+                .selectGenterWrapper(testData.gender)
+                .typeUserNumber(testData.userNumberNegative)
                 .submitForm()
                 .checkBorderColorNumber();
 
