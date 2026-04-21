@@ -19,7 +19,7 @@ public class TestData {
     public String userNumber = faker.phoneNumber().subscriberNumber(10);
     public String userNumberNegative = faker.phoneNumber().subscriberNumber(5);
     ;
-    public String dateDat = String.format("%02d", faker.number().numberBetween(1, 9));
+    public String dateDat = String.format("%02d", faker.number().numberBetween(1, 28));
     public String dateMonth = RandomUtils.getRandomMonth();
     public String dateYear = String.valueOf(faker.number().numberBetween(1900, 2100));
     public String dateOfBirth = String.format("%s %s,%s", dateDat, dateMonth, dateYear);
