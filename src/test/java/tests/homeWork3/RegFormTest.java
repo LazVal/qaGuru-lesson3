@@ -32,7 +32,7 @@ public class RegFormTest extends BaseTest {
                 .checkResponce("Student Email", testData.userEmail)
                 .checkResponce("Gender", testData.gender)
                 .checkResponce("Mobile", testData.userNumber)
-                .checkResponce("Date of Birth", testData.dateofBirth)
+                .checkResponce("Date of Birth", testData.dateOfBirth)
                 .checkResponce("Subjects", testData.subjectsInput)
                 .checkResponce("Hobbies", testData.hobbies)
                 .checkResponce("Picture", testData.uploadPicture)
@@ -55,7 +55,7 @@ public class RegFormTest extends BaseTest {
                 .checkResponce("Student Name", testData.fullName)
                 .checkResponce("Gender", testData.gender)
                 .checkResponce("Mobile", testData.userNumber)
-                .checkResponce("Date of Birth", testData.dateofBirth);
+                .checkResponce("Date of Birth", testData.dateOfBirth);
 
     }
 

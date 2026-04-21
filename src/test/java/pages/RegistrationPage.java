@@ -5,6 +5,7 @@ import pages.components.CalendarComponent;
 import pages.components.SubjectComponent;
 import pages.components.TableComponent;
 import tests.testdata.TestData;
+import utils.JsSnippets;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -40,6 +41,7 @@ public class RegistrationPage {
     //Actions (то, что делаем с локаторами)
     public RegistrationPage openPage() {
         open("/automation-practice-form");
+        JsSnippets.deleteAdvertisement();
         return this;
     }
 
