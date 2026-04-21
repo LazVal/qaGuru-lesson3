@@ -6,8 +6,10 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class JsSnippets {
 
-    public void deleteAdvertisement () {
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
+    public static void deleteAdvertisement() {
+        executeJavaScript("""
+                    document.getElementById('fixedban')?.remove();
+                    document.querySelector('footer')?.remove();
+                """);
     }
 }
