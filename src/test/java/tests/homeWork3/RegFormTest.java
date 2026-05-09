@@ -1,18 +1,28 @@
 package tests.homeWork3;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import jdk.jfr.Description;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import tests.testdata.TestData;
+
 
 
 public class RegFormTest extends BaseTest {
     RegistrationPage registrationPage = new RegistrationPage();
     TestData testData = new TestData();
 
+
     @Test
     @Description("Позитивно проверяются все поля формы, а не только обязательные")
+    @DisplayName("Позитивно проверяются все поля формы, а не только обязательные")
     void successFullFillFormTest() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
         registrationPage.openPage()
                 .typeFirstName(testData.userName)
                 .typeLastName(testData.lastName)
@@ -44,6 +54,10 @@ public class RegFormTest extends BaseTest {
 
     @Test
     @Description("Позитивно проверяются только обязательные поля")
+    @Tags({
+            @Tag("SMOKE"),
+            @Tag("REGRESS")
+    })
     void successCompulsoryFillFormTest() {
         registrationPage.openPage()
                 .typeFirstName(testData.userName)
