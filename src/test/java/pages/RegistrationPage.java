@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import pages.components.CalendarComponent;
 import pages.components.SubjectComponent;
 import pages.components.TableComponent;
@@ -39,18 +40,21 @@ public class RegistrationPage {
 
 
     //Actions (то, что делаем с локаторами)
+    @Step("Открываем главную старницу /automation-practice-form")
     public RegistrationPage openPage() {
         open("/automation-practice-form");
         JsSnippets.deleteAdvertisement();
         return this;
     }
 
+    @Step("Вводим имя \"{value}\"")
     public RegistrationPage typeFirstName(String value) {
         firstNameInput.setValue(value);
 
         return this;
     }
 
+    @Step("Вводим фамилию \"{value}\"")
     public RegistrationPage typeLastName(String value) {
         userLastName.setValue(value);
 
