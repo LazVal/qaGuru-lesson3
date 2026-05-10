@@ -15,6 +15,11 @@ public class BaseTest {
         Configuration.browserSize = "1920x1080"; //расширение браузера
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browser = "chrome";
+
+//      Configuration.browser = "chrome";
+//      Configuration.browserVersion = "128.0";
+        //Запуск браузера в selenoid
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     }
 
 
