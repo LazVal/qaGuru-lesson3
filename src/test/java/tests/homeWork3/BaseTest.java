@@ -18,6 +18,7 @@ import java.util.Map;
 
 public class BaseTest {
     RegistrationPage registrationPage = new RegistrationPage();
+    RegistrationPageSecond registrationPageSecond = new RegistrationPageSecond();
     TestData testData = new TestData();
 
     @BeforeEach
@@ -52,6 +53,6 @@ public class BaseTest {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.getVideoUrl();
-        closeWebDriver();
+        Selenide.closeWebDriver();
     }
 }

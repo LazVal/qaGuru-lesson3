@@ -15,12 +15,12 @@ import static org.openqa.selenium.logging.LogType.BROWSER;
 
 public class Attach {
     //Добавляем скрин в Allure после каждого теста
-    @Attachment (value = "{attachName}", type = "image/png")
+    @Attachment(value = "{attachName}", type = "image/png")
     public static byte[] screenshootAs(String attachName) {
         return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
     }
 
-    @Attachment (value = "Page source", type = "text/plain")
+    @Attachment(value = "Page source", type = "text/plain")
     public static byte[] pageSource() {
         return (getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8));
     }

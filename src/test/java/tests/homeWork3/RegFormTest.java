@@ -1,27 +1,19 @@
 package tests.homeWork3;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.*;
-import io.qameta.allure.selenide.AllureSelenide;
-import com.codeborne.selenide.logevents.SelenideLogger;
-
 import static io.qameta.allure.Allure.step;
-
 import jdk.jfr.Description;
 import org.junit.jupiter.api.*;
-import pages.RegistrationPage;
-import tests.testdata.TestData;
 
 
-@Story("Форма регистиации")
+
+@Story("Первая форма регистрации")
 public class RegFormTest extends BaseTest {
 
 
     @Test
     @Description("Позитивно проверяются все поля формы, а не только обязательные")
     @DisplayName("Позитивно проверяются все поля формы, а не только обязательные")
-    @Step()
     void successFullFillFormTest() {
 
         step("Открыть страницу регистарции", () -> {
@@ -43,7 +35,7 @@ public class RegFormTest extends BaseTest {
                     .submitForm();
         });
         step("Проверка результатов заполнения формы", () -> {
-            ;
+
             registrationPage.checkAppear(testData.tableText)
                     .checkResponce("Student Name", testData.fullName)
                     .checkResponce("Student Email", testData.userEmail)
@@ -98,7 +90,7 @@ public class RegFormTest extends BaseTest {
                     .typeUserNumber(testData.userNumber)
                     .submitForm();
         });
-        step("Проверка подсвечивание красным обязательного поля FirstName", () -> {
+        step("Проверка подсвечивания красным обязательного поля FirstName", () -> {
             registrationPage.checkBorderColorFirstName();
         });
 
@@ -116,7 +108,7 @@ public class RegFormTest extends BaseTest {
                     .typeUserNumber(testData.userNumber)
                     .submitForm();
         });
-        step("Проверка подсвечивание красным обязательного поля LastName", () -> {
+        step("Проверка подсвечивания красным обязательного поля LastName", () -> {
             registrationPage.checkBorderColorLastName();
         });
 
@@ -128,14 +120,14 @@ public class RegFormTest extends BaseTest {
         step("Открыть страницу регистарции", () -> {
             registrationPage.openPage();
         });
-        step("Заполняются поля формы без Number", () -> {
+        step("Неверно заполнить поле Number", () -> {
             registrationPage.typeFirstName(testData.userName)
                     .typeLastName(testData.lastName)
                     .selectGenterWrapper(testData.gender)
                     .typeUserNumber(testData.userNumberNegative)
                     .submitForm();
         });
-        step("Проверка подсвечивание красным обязательного поля LastName", () -> {
+        step("Проверка подсвечивания красным обязательного поля LastName", () -> {
             registrationPage.checkBorderColorNumber();
         });
 

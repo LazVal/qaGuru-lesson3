@@ -1,38 +1,44 @@
 package tests.homeWork3;
 
+import io.qameta.allure.Story;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pages.RegistrationPageSecond;
-import tests.homeWork3.BaseTest;
-import tests.testdata.TestData;
+import static io.qameta.allure.Allure.step;
 
-import static com.codeborne.selenide.Condition.cssValue;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.$x;
-import static tests.testdata.TestData.*;
-
+@Story("Вторая форма регистрации")
 public class RegFormSecondTest extends BaseTest {
-    RegistrationPageSecond registrationPageSecond = new RegistrationPageSecond();
-    TestData testData = new TestData();
-
 
     @Test
+    @DisplayName("Позитивно проверяется заполнение формы")
     void successCompulsoryFillFormTest() {
-        registrationPageSecond.openPage()
-                .inputName(testData.userName)
-                .inputEmail(testData.userEmail)
-                .submitForm()
-                .checkField(testData.name,testData.userName);
-
+        step("Открыть страницу регистарции", () -> {
+            registrationPageSecond.openPage();
+        });
+        step("Заполнение обязательных полей формы", () -> {
+            registrationPageSecond
+                    .inputName(testData.userName)
+                    .inputEmail(testData.userEmail)
+                    .submitForm();
+        });
+        step("Проверка результатов заполнения формы", () -> {
+            registrationPageSecond.checkField(testData.name, testData.userName);
+        });
     }
 
     @Test
+    @DisplayName("Нешативная проверка на неверное заполнение поля Email")
     void negativeEmailTest() {
-        registrationPageSecond.openPage()
-                .inputName(testData.userName)
-                .inputEmail(testData.userEmailNegative)
-                .submitForm()
-                .checkBorderColorUserEmail();
-
+        step("Открыть страницу регистарции", () -> {
+            registrationPageSecond.openPage();
+        });
+        step("Неверно заполнить поле Email", () -> {
+            registrationPageSecond
+                    .inputName(testData.userName)
+                    .inputEmail(testData.userEmailNegative)
+                    .submitForm();
+        });
+        step("Проверка подсвечивания красным обязательного поля Email", () -> {
+            registrationPageSecond.checkBorderColorUserEmail();
+        });
     }
 }
