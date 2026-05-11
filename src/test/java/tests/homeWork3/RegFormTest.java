@@ -77,7 +77,7 @@ public class RegFormTest extends BaseTest {
                     .submitForm();
         });
         step("Проверка результатов заполнения формы", () -> {
-            ;
+
             registrationPage.checkResponce("Student Name", testData.fullName)
                     .checkResponce("Gender", testData.gender)
                     .checkResponce("Mobile", testData.userNumber)

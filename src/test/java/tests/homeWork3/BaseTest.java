@@ -8,9 +8,13 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.RegistrationPage;
 import pages.RegistrationPageSecond;
 import tests.testdata.TestData;
+import helpers.Attach;
+
+import java.util.Map;
 
 public class BaseTest {
     RegistrationPage registrationPage = new RegistrationPage();
@@ -20,13 +24,22 @@ public class BaseTest {
     void addListener() {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
+
     @BeforeAll
     public static void setupSelenideEnv() {
         Configuration.browserSize = "1920x1080"; //расширение браузера
         Configuration.baseUrl = "https://demoqa.com";
 //        Configuration.browser = "chrome";
-//
 //        Configuration.browserVersion = "128.0";
+
+        //Код нужен для того, чтобы в selenoid началась запись видео
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        //передать два значения (enableVNC и enableVideo) в версию браузера
+        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                "enableVNC", true,
+                "enableVideo", true
+        ));
+        Configuration.browserCapabilities = capabilities;
         //Запуск браузера в selenoid
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
@@ -35,6 +48,10 @@ public class BaseTest {
 
     @AfterEach
     void closeWebDriver() {
-        Selenide.closeWebDriver();
+        Attach.screenshootAs("Last screenshoot");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        Attach.getVideoUrl();
+        closeWebDriver();
     }
 }
