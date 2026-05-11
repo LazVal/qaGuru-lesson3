@@ -47,72 +47,72 @@ public class RegistrationPage {
         return this;
     }
 
-    @Step("Вводим имя \"{value}\"")
+    @Step("Ввести имя \"{value}\"")
     public RegistrationPage typeFirstName(String value) {
         firstNameInput.setValue(value);
 
         return this;
     }
 
-    @Step("Вводим фамилию \"{value}\"")
+    @Step("Ввести фамилию \"{value}\"")
     public RegistrationPage typeLastName(String value) {
         userLastName.setValue(value);
 
         return this;
     }
-
+    @Step("Ввести электронную почту \"{value}\"")
     public RegistrationPage typeUserEmail(String value) {
         userEmail.setValue(value);
 
         return this;
     }
-
+    @Step("Выбрать пол \"{value}\"")
     public RegistrationPage selectGenterWrapper(String value) {
         genterWrapper.$(byText(value)).click();
 
         return this;
     }
-
+    @Step("Ввести номер телефона \"{value}\"")
     public RegistrationPage typeUserNumber(String value) {
         userNumber.setValue(value);
 
         return this;
     }
-
+    @Step("Выбрать дату рождения \"{day}\", \"{month}\", \"{year}\"")
     public RegistrationPage setDayOfBirth(String day, String month, String year) {
         calendarClick.click();
         calendar.setDatesOfBirth(day, month, year);
 
         return this;
     }
-
+    @Step("Ввести предмет \"{value}\"")
     public RegistrationPage typeSubject(String value) {
         subject.setSubject(value);
         return this;
     }
-
+    @Step("Выбрать хобби \"{value}\"")
     public RegistrationPage setHobbies(String value) {
         userHobbies.$(byText(value)).click();
         return this;
     }
-
+    @Step("Загрузка картинки \"{value}\"")
     public RegistrationPage uploadPicture(String value) {
         userPicture.uploadFromClasspath(value);
         return this;
     }
-
+    @Step("Ввести адрес \"{value}\"")
     public RegistrationPage typeAddress(String value) {
         userAddress.setValue(value);
         return this;
     }
-
+    @Step("Выбрать штат \"{value}\"")
     public RegistrationPage setState(String value) {
         stateSelect.scrollIntoView(true).click();
         stateCityContainer.$(byText(value)).click();
 
         return this;
     }
-
+    @Step("Выбрать город \"{value}\"")
     public RegistrationPage setCity(String value) {
         citySelect.scrollIntoView(true).click();
         stateCityContainer.$(byText(value)).click();
@@ -120,33 +120,33 @@ public class RegistrationPage {
         return this;
     }
 
-
+    @Step("Отправить форму")
     public RegistrationPage submitForm() {
         submitButton.scrollIntoView(true).shouldBe(visible).click();
         return this;
     }
-
+    @Step("Проверка вывода таблицы с результатами заполнения формы ")
     public RegistrationPage checkAppear(String value) {
         tableAppear.should(appear);
         tableText.shouldHave(text(value));
         return this;
     }
-
+    @Step("Проверка заполнения формы")
     public RegistrationPage checkResponce(String key, String value) {
         tableComponent.checkResponce(key, value);
         return this;
     }
-
+    @Step("Проверка незаполнения обязательного поля LastName")
     public RegistrationPage checkBorderColorLastName() {
         userLastName.shouldHave(cssValue("border-color", testData.borderColorRed));
         return this;
     }
-
+    @Step("Проверка незаполнения обязательного поля FirstName")
     public RegistrationPage checkBorderColorFirstName() {
         firstNameInput.shouldHave(cssValue("border-color", testData.borderColorRed));
         return this;
     }
-
+    @Step("Проверка незаполнения обязательного поля Number")
     public RegistrationPage checkBorderColorNumber() {
         userNumber.shouldHave(cssValue("border-color", testData.borderColorRed));
         return this;
