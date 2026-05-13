@@ -29,9 +29,9 @@ public class BaseTest {
     @BeforeAll
     public static void setupSelenideEnv() {
         Configuration.browserSize = "1920x1080"; //расширение браузера
-        Configuration.baseUrl =System.getProperty("BASE_URL"); // "https://demoqa.com";
+        Configuration.baseUrl =System.getProperty("URL"); // "https://demoqa.com";
         Configuration.browser = System.getProperty("BROWSER");//"chrome";
-//        Configuration.browserVersion = "128.0";
+        Configuration.browserVersion = System.getProperty("BROWSER_VERSION");
 
         //Код нужен для того, чтобы в selenoid началась запись видео
         DesiredCapabilities capabilities = new DesiredCapabilities();

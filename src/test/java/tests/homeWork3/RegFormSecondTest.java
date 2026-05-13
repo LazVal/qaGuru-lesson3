@@ -26,7 +26,7 @@ public class RegFormSecondTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Нешативная проверка на неверное заполнение поля Email")
+    @DisplayName("Негативная проверка на неверное заполнение поля Email")
     void negativeEmailTest() {
         step("Открыть страницу регистарции", () -> {
             registrationPageSecond.openPage();
