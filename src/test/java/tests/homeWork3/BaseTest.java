@@ -28,11 +28,12 @@ public class BaseTest {
 
     @BeforeAll
     public static void setupSelenideEnv() {
-        Configuration.browserSize = "1920x1080"; //расширение браузера
-        Configuration.baseUrl =System.getProperty("URL"); // "https://demoqa.com";
-        Configuration.browser = System.getProperty("BROWSER");//"chrome";
+        Configuration.browserSize = System.getProperty("browserSize", "1920x1080"); //расширение браузера
+        Configuration.baseUrl =System.getProperty("URL","https://demoqa.com"); //
+        Configuration.browser = System.getProperty("BROWSER", "chrome");//
         Configuration.browserVersion = System.getProperty("BROWSER_VERSION");
-//        Configuration.browserVersion = "128.0";
+        Configuration.headless = Boolean.parseBoolean(System.getProperty("HEADLESS","true"));
+
 
         //Код нужен для того, чтобы в selenoid началась запись видео
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -43,7 +44,7 @@ public class BaseTest {
         ));
         Configuration.browserCapabilities = capabilities;
         //Запуск браузера в selenoid
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        Configuration.remote = System.getProperty("remote", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
 
     }
 
