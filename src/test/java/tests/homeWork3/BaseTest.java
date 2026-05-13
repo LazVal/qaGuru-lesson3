@@ -28,7 +28,7 @@ public class BaseTest {
 
     @BeforeAll
     public static void setupSelenideEnv() {
-        Configuration.browserSize = "1920x1080"; //расширение браузера
+        Configuration.browserSize = "1920x1080";
         Configuration.baseUrl =System.getProperty("URL"); // "https://demoqa.com";
         Configuration.browser = System.getProperty("BROWSER");//"chrome";
         Configuration.browserVersion = System.getProperty("BROWSER_VERSION");
