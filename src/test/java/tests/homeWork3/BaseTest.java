@@ -44,7 +44,7 @@ public class BaseTest {
         ));
         Configuration.browserCapabilities = capabilities;
         //Запуск браузера в selenoid
-        Configuration.remote = System.getProperty("remote", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
+        Configuration.remote = System.getProperty("REMOTE", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
 
     }
 
@@ -54,7 +54,7 @@ public class BaseTest {
         Attach.screenshootAs("Last screenshoot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
-        Attach.getVideoUrl();
+        Attach.addVideo();
         Selenide.closeWebDriver();
     }
 }
