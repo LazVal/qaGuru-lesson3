@@ -32,7 +32,7 @@ public class BaseTest {
         Configuration.baseUrl =System.getProperty("URL","https://demoqa.com"); //
         Configuration.browser = System.getProperty("BROWSER", "chrome");//
         Configuration.browserVersion = System.getProperty("BROWSER_VERSION");
-        Configuration.headless = Boolean.parseBoolean(System.getProperty("HEADLESS","true"));
+        Configuration.headless = Boolean.parseBoolean(System.getProperty("HEADLESS","false"));
 
 
         //Код нужен для того, чтобы в selenoid началась запись видео
@@ -44,7 +44,7 @@ public class BaseTest {
         ));
         Configuration.browserCapabilities = capabilities;
         //Запуск браузера в selenoid
-        Configuration.remote = System.getProperty("REMOTE", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
+        Configuration.remote = System.getProperty("REMOTE"); //https://user1:1234@selenoid.autotests.cloud/wd/hub
 
     }
 
